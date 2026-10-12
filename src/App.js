@@ -1,6 +1,12 @@
+import { BrowserRouter, Link, Route, Routes, useNavigate } from 'react-router-dom';
+
 function App() {
     return (
-        <div>FER202 - Practical Exam given</div>
+        <BrowserRouter>
+            <Routes>
+                {/* <Route path="/" element={<ProductList />} /> */}
+            </Routes>
+        </BrowserRouter>
     )
 }
 
