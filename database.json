@@ -1,0 +1,519 @@
+{
+  "users": [
+    {
+      "id": "USR001",
+      "email": "admin@gmail.com",
+      "username": "admin",
+      "password": "123",
+      "fullName": "Quản Trị Viên",
+      "role": "Admin",
+      "phone": "0901000001",
+      "address": "1 Nguyễn Huệ, Q.1, TP.HCM",
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "isActive": true
+    },
+    {
+      "id": "USR002",
+      "email": "seller01@gmail.com",
+      "username": "seller01",
+      "password": "123",
+      "fullName": "Thủ Kho Nguyễn Văn A",
+      "role": "Seller",
+      "phone": "0901000002",
+      "address": "25 Cộng Hòa, Q.Tân Bình, TP.HCM",
+      "avatar": "https://i.pravatar.cc/150?img=33",
+      "isActive": true
+    },
+    {
+      "id": "USR003",
+      "email": "customer01@gmail.com",
+      "username": "customer01",
+      "password": "123",
+      "fullName": "Trần Thị Khách",
+      "role": "Customer",
+      "phone": "0912334455",
+      "address": "123 Đường Lê Lợi, Q.1, TP.HCM",
+      "avatar": "https://i.pravatar.cc/150?img=47",
+      "isActive": true
+    },
+    {
+      "id": "USR004",
+      "email": "customer02@gmail.com",
+      "username": "customer02",
+      "password": "123",
+      "fullName": "Lê Văn Bình",
+      "role": "Customer",
+      "phone": "0987654321",
+      "address": "45 Trần Phú, Q.Hải Châu, Đà Nẵng",
+      "avatar": "https://i.pravatar.cc/150?img=15",
+      "isActive": true
+    },
+    {
+      "id": "USR005",
+      "email": "customer03@gmail.com",
+      "username": "customer03",
+      "password": "123",
+      "fullName": "Phạm Thị Cúc",
+      "role": "Customer",
+      "phone": "0933111222",
+      "address": "78 Kim Mã, Q.Ba Đình, Hà Nội",
+      "avatar": "",
+      "isActive": false
+    },
+    {
+      "email": "hungminh19952005@gmail.com",
+      "username": "Hung",
+      "password": "123",
+      "fullName": "Hà Duy Hưng",
+      "role": "Customer",
+      "phone": "0123456789",
+      "address": "abcd",
+      "avatar": "",
+      "isActive": true,
+      "id": "MqSAjP5hJKw"
+    }
+  ],
+  "categories": [
+    {
+      "id": "CAT_AO",
+      "name": "Áo",
+      "subCategories": [
+        "Áo sơ mi",
+        "Áo phông (T-shirt)",
+        "Áo polo",
+        "Áo kiểu",
+        "Áo len",
+        "Áo cardigan",
+        "Áo khoác",
+        "Áo ba lỗ",
+        "Blazer",
+        "Hoodie",
+        "Sweatshirt"
+      ]
+    },
+    {
+      "id": "CAT_QUAN",
+      "name": "Quần",
+      "subCategories": [
+        "Quần tây",
+        "Quần jeans",
+        "Quần short",
+        "Quần jogger",
+        "Quần legging"
+      ]
+    },
+    {
+      "id": "CAT_VAY",
+      "name": "Váy và Đầm",
+      "subCategories": [
+        "Đầm liền",
+        "Chân váy"
+      ]
+    },
+    {
+      "id": "CAT_DOLOT",
+      "name": "Đồ lót & Đồ mặc ở nhà",
+      "subCategories": [
+        "Áo lót",
+        "Quần lót",
+        "Đồ ngủ",
+        "Đồ mặc nhà"
+      ]
+    },
+    {
+      "id": "CAT_PHUKIEN",
+      "name": "Mũ & Phụ kiện",
+      "subCategories": [
+        "Mũ nón",
+        "Thắt lưng",
+        "Tất/vớ",
+        "Khăn quàng"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "PROD001",
+      "name": "Áo Sơ Mi Trắng Form Rộng",
+      "categoryId": "CAT_AO",
+      "subCategory": "Áo sơ mi",
+      "price": 350000,
+      "stock": 12,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "material": "100% Cotton Lạnh",
+      "description": "Áo sơ mi trắng phong cách Hàn Quốc, thoáng mát, dễ phối đồ.",
+      "imageUrl": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD002",
+      "name": "Áo Phông Basic Đen",
+      "categoryId": "CAT_AO",
+      "subCategory": "Áo phông (T-shirt)",
+      "price": 199000,
+      "stock": 30,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "100% Cotton",
+      "description": "Áo phông cổ tròn màu đen, form regular, mặc hằng ngày.",
+      "imageUrl": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD003",
+      "name": "Áo Hoodie Nỉ Xám",
+      "categoryId": "CAT_AO",
+      "subCategory": "Hoodie",
+      "price": 450000,
+      "stock": 3,
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "Nỉ bông",
+      "description": "Hoodie nỉ dày dặn, có mũ và túi trước, giữ ấm tốt.",
+      "imageUrl": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD004",
+      "name": "Quần Jeans Ống Đứng Xanh",
+      "categoryId": "CAT_QUAN",
+      "subCategory": "Quần jeans",
+      "price": 520000,
+      "stock": 15,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "Denim co giãn",
+      "description": "Quần jeans ống đứng màu xanh nhạt, co giãn nhẹ, dễ vận động.",
+      "imageUrl": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD005",
+      "name": "Quần Short Kaki Be",
+      "categoryId": "CAT_QUAN",
+      "subCategory": "Quần short",
+      "price": 280000,
+      "stock": 0,
+      "sizes": [
+        "M",
+        "L"
+      ],
+      "material": "Kaki",
+      "description": "Quần short kaki màu be, phù hợp đi chơi mùa hè.",
+      "imageUrl": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD006",
+      "name": "Quần Jogger Thể Thao",
+      "categoryId": "CAT_QUAN",
+      "subCategory": "Quần jogger",
+      "price": 320000,
+      "stock": 20,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "Thun da cá",
+      "description": "Quần jogger bo gấu, lưng thun, thoải mái khi tập luyện.",
+      "imageUrl": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD007",
+      "name": "Đầm Liền Hoa Nhí",
+      "categoryId": "CAT_VAY",
+      "subCategory": "Đầm liền",
+      "price": 480000,
+      "stock": 8,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "material": "Voan lụa",
+      "description": "Đầm liền họa tiết hoa nhí, dáng xòe nhẹ nhàng.",
+      "imageUrl": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD008",
+      "name": "Chân Váy Xếp Ly",
+      "categoryId": "CAT_VAY",
+      "subCategory": "Chân váy",
+      "price": 300000,
+      "stock": 4,
+      "sizes": [
+        "S",
+        "M"
+      ],
+      "material": "Tuyết mưa",
+      "description": "Chân váy xếp ly dáng dài qua gối, thanh lịch.",
+      "imageUrl": "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD009",
+      "name": "Đầm Maxi Đi Biển",
+      "categoryId": "CAT_VAY",
+      "subCategory": "Đầm liền",
+      "price": 550000,
+      "stock": 6,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "material": "Linen",
+      "description": "Đầm maxi dáng dài, chất linen mát, hợp đi du lịch biển.",
+      "imageUrl": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500",
+      "isActive": false
+    },
+    {
+      "id": "PROD010",
+      "name": "Bộ Đồ Ngủ Lụa",
+      "categoryId": "CAT_DOLOT",
+      "subCategory": "Đồ ngủ",
+      "price": 390000,
+      "stock": 10,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "material": "Lụa satin",
+      "description": "Bộ đồ ngủ lụa satin mềm mịn, gồm áo dài tay và quần dài.",
+      "imageUrl": "https://images.unsplash.com/photo-1631947430066-48c30d57b943?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD011",
+      "name": "Bộ Đồ Mặc Nhà Cotton",
+      "categoryId": "CAT_DOLOT",
+      "subCategory": "Đồ mặc nhà",
+      "price": 260000,
+      "stock": 2,
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "Cotton",
+      "description": "Bộ đồ mặc nhà cotton thấm hút mồ hôi, áo cộc tay quần lửng.",
+      "imageUrl": "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD012",
+      "name": "Set 3 Quần Lót Cotton",
+      "categoryId": "CAT_DOLOT",
+      "subCategory": "Quần lót",
+      "price": 150000,
+      "stock": 25,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "material": "Cotton co giãn",
+      "description": "Set 3 quần lót cotton kháng khuẩn, nhiều màu.",
+      "imageUrl": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD013",
+      "name": "Mũ Lưỡi Trai Trơn",
+      "categoryId": "CAT_PHUKIEN",
+      "subCategory": "Mũ nón",
+      "price": 120000,
+      "stock": 40,
+      "sizes": [
+        "M",
+        "L"
+      ],
+      "material": "Kaki cotton",
+      "description": "Mũ lưỡi trai trơn, có khóa chỉnh vòng đầu phía sau.",
+      "imageUrl": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD014",
+      "name": "Thắt Lưng Da Nâu",
+      "categoryId": "CAT_PHUKIEN",
+      "subCategory": "Thắt lưng",
+      "price": 250000,
+      "stock": 9,
+      "sizes": [
+        "M",
+        "L"
+      ],
+      "material": "Da bò",
+      "description": "Thắt lưng da bò màu nâu, mặt khóa kim loại.",
+      "imageUrl": "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500",
+      "isActive": true
+    },
+    {
+      "id": "PROD015",
+      "name": "Khăn Quàng Len",
+      "categoryId": "CAT_PHUKIEN",
+      "subCategory": "Khăn quàng",
+      "price": 180000,
+      "stock": 14,
+      "sizes": [
+        "M"
+      ],
+      "material": "Len lông cừu",
+      "description": "Khăn quàng len mềm, giữ ấm cổ trong mùa lạnh.",
+      "imageUrl": "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=500",
+      "isActive": true
+    }
+  ],
+  "carts": [],
+  "orders": [
+    {
+      "id": "ORD1001",
+      "customerId": "USR003",
+      "customerName": "Trần Thị Khách",
+      "phone": "0912334455",
+      "shippingAddress": "123 Đường Lê Lợi, Q.1, TP.HCM",
+      "items": [
+        {
+          "productId": "PROD001",
+          "productName": "Áo Sơ Mi Trắng Form Rộng",
+          "size": "M",
+          "quantity": 2,
+          "price": 350000
+        }
+      ],
+      "totalAmount": 700000,
+      "paymentMethod": "BankTransfer",
+      "status": "Completed",
+      "createdAt": "2026-10-01T03:00:00.000Z",
+      "updatedAt": "2026-10-04T08:15:00.000Z"
+    },
+    {
+      "id": "ORD1002",
+      "customerId": "USR003",
+      "customerName": "Trần Thị Khách",
+      "phone": "0912334455",
+      "shippingAddress": "123 Đường Lê Lợi, Q.1, TP.HCM",
+      "items": [
+        {
+          "productId": "PROD004",
+          "productName": "Quần Jeans Ống Đứng Xanh",
+          "size": "L",
+          "quantity": 1,
+          "price": 520000
+        },
+        {
+          "productId": "PROD013",
+          "productName": "Mũ Lưỡi Trai Trơn",
+          "size": "M",
+          "quantity": 1,
+          "price": 120000
+        }
+      ],
+      "totalAmount": 640000,
+      "paymentMethod": "EWallet",
+      "status": "Delivering",
+      "createdAt": "2026-10-10T07:20:00.000Z",
+      "updatedAt": "2026-10-11T02:00:00.000Z"
+    },
+    {
+      "id": "ORD1003",
+      "customerId": "USR004",
+      "customerName": "Lê Văn Bình",
+      "phone": "0987654321",
+      "shippingAddress": "45 Trần Phú, Q.Hải Châu, Đà Nẵng",
+      "items": [
+        {
+          "productId": "PROD007",
+          "productName": "Đầm Liền Hoa Nhí",
+          "size": "S",
+          "quantity": 1,
+          "price": 480000
+        },
+        {
+          "productId": "PROD007",
+          "productName": "Đầm Liền Hoa Nhí",
+          "size": "M",
+          "quantity": 1,
+          "price": 480000
+        }
+      ],
+      "totalAmount": 960000,
+      "paymentMethod": "Card",
+      "status": "Paid",
+      "createdAt": "2026-10-13T04:45:00.000Z",
+      "updatedAt": "2026-10-13T04:50:00.000Z"
+    },
+    {
+      "id": "ORD1004",
+      "customerId": "USR004",
+      "customerName": "Lê Văn Bình",
+      "phone": "0987654321",
+      "shippingAddress": "45 Trần Phú, Q.Hải Châu, Đà Nẵng",
+      "items": [
+        {
+          "productId": "PROD002",
+          "productName": "Áo Phông Basic Đen",
+          "size": "L",
+          "quantity": 2,
+          "price": 199000
+        }
+      ],
+      "totalAmount": 398000,
+      "paymentMethod": null,
+      "status": "Cancelled",
+      "createdAt": "2026-10-08T09:00:00.000Z",
+      "updatedAt": "2026-10-08T09:30:00.000Z"
+    },
+    {
+      "id": "ORD1005",
+      "customerId": "USR003",
+      "customerName": "Trần Thị Khách",
+      "phone": "0912334455",
+      "shippingAddress": "123 Đường Lê Lợi, Q.1, TP.HCM",
+      "items": [
+        {
+          "productId": "PROD010",
+          "productName": "Bộ Đồ Ngủ Lụa",
+          "size": "M",
+          "quantity": 1,
+          "price": 390000
+        },
+        {
+          "productId": "PROD015",
+          "productName": "Khăn Quàng Len",
+          "size": "M",
+          "quantity": 2,
+          "price": 180000
+        }
+      ],
+      "totalAmount": 750000,
+      "paymentMethod": null,
+      "status": "PendingPayment",
+      "createdAt": "2026-10-14T02:30:00.000Z",
+      "updatedAt": "2026-10-14T02:30:00.000Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
