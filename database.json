@@ -386,7 +386,13 @@
       "isActive": true
     }
   ],
-  "carts": [],
+  "carts": [
+    {
+      "userId": "USR003",
+      "items": [],
+      "id": "49vbtxxAGxw"
+    }
+  ],
   "orders": [
     {
       "id": "ORD1001",
