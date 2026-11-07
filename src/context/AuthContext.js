@@ -24,8 +24,14 @@ export function AuthProvider({ children }) {
     localStorage.removeItem("currentUser");
   }
 
+  // Cập nhật thông tin user khi sửa profile
+  function updateUser(user) {
+    setCurrentUser(user);
+    localStorage.setItem("currentUser", JSON.stringify(user));
+  }
+
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );
