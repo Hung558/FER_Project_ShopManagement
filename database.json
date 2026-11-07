@@ -27,13 +27,13 @@
     {
       "id": "USR003",
       "email": "customer01@gmail.com",
-      "username": "customer01",
+      "username": "customer012",
       "password": "123",
       "fullName": "Trần Thị Khách",
       "role": "Customer",
       "phone": "0912334455",
       "address": "123 Đường Lê Lợi, Q.1, TP.HCM",
-      "avatar": "https://i.pravatar.cc/150?img=47",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0maOLJ9j31VumNnnFIgvl1A6pDxuaDIyoeDsQ7sU2yg&s=10",
       "isActive": true
     },
     {
@@ -71,6 +71,18 @@
       "avatar": "",
       "isActive": true,
       "id": "MqSAjP5hJKw"
+    },
+    {
+      "email": "khachmoi@gmail.com",
+      "username": "khachmoi",
+      "password": "123",
+      "fullName": "khachmoi",
+      "role": "Customer",
+      "phone": "123132131",
+      "address": "123",
+      "avatar": "",
+      "isActive": true,
+      "id": "AyKhLfxxWEs"
     }
   ],
   "categories": [
@@ -138,7 +150,7 @@
       "categoryId": "CAT_AO",
       "subCategory": "Áo sơ mi",
       "price": 350000,
-      "stock": 12,
+      "stock": 10,
       "sizes": [
         "S",
         "M",
@@ -519,6 +531,27 @@
       "status": "PendingPayment",
       "createdAt": "2026-11-07T08:30:00.000Z",
       "updatedAt": "2026-11-07T08:30:00.000Z"
+    },
+    {
+      "customerId": "USR003",
+      "customerName": "Trần Thị Khách",
+      "phone": "0912334455",
+      "shippingAddress": "123 Đường Lê Lợi, Q.1, TP.HCM",
+      "items": [
+        {
+          "productId": "PROD001",
+          "productName": "Áo Sơ Mi Trắng Form Rộng",
+          "size": "M",
+          "quantity": 2,
+          "price": 350000
+        }
+      ],
+      "totalAmount": 700000,
+      "paymentMethod": "BankTransfer",
+      "status": "Completed",
+      "createdAt": "2026-11-07T15:46:21.472Z",
+      "updatedAt": "2026-11-07T15:49:31.064Z",
+      "id": "E9WrSc_Am60"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
