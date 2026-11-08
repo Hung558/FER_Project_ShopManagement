@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Col, Container, Form, Row } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
 
 const API_URL = "http://localhost:9999";
@@ -8,11 +9,14 @@ const API_URL = "http://localhost:9999";
 export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [searchText, setSearchText] = useState("");
-  const [selectedCategoryId, setSelectedCategoryId] = useState("");
-  const [selectedSubCategory, setSelectedSubCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  // Đọc search & filter từ URL params (?search=...&category=...&subCategory=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") || "";
+  const selectedCategoryId = searchParams.get("category") || "";
+  const selectedSubCategory = searchParams.get("subCategory") || "";
 
   useEffect(() => {
     async function fetchData() {
@@ -33,10 +37,38 @@ export default function HomePage() {
     fetchData();
   }, []);
 
-  // Đổi danh mục chính thì reset danh mục phụ
+  // Đổi danh mục chính thì cập nhật param và xóa param danh mục phụ
   function handleCategoryChange(event) {
-    setSelectedCategoryId(event.target.value);
-    setSelectedSubCategory("");
+    const val = event.target.value;
+    if (val) {
+      searchParams.set("category", val);
+    } else {
+      searchParams.delete("category");
+    }
+    searchParams.delete("subCategory");
+    setSearchParams(searchParams);
+  }
+
+  // Đổi danh mục phụ thì cập nhật param subCategory trên URL
+  function handleSubCategoryChange(event) {
+    const val = event.target.value;
+    if (val) {
+      searchParams.set("subCategory", val);
+    } else {
+      searchParams.delete("subCategory");
+    }
+    setSearchParams(searchParams);
+  }
+
+  // Nhập tìm kiếm theo tên thì cập nhật param search trên URL
+  function handleSearchChange(event) {
+    const val = event.target.value;
+    if (val) {
+      searchParams.set("search", val);
+    } else {
+      searchParams.delete("search");
+    }
+    setSearchParams(searchParams);
   }
 
   // Danh mục phụ chỉ gồm các mục thuộc danh mục chính đang chọn
@@ -72,7 +104,7 @@ export default function HomePage() {
           <Form.Control
             placeholder="Tìm theo tên sản phẩm..."
             value={searchText}
-            onChange={(event) => setSearchText(event.target.value)}
+            onChange={handleSearchChange}
           />
         </Col>
         <Col md={3}>
@@ -88,7 +120,7 @@ export default function HomePage() {
         <Col md={3}>
           <Form.Select
             value={selectedSubCategory}
-            onChange={(event) => setSelectedSubCategory(event.target.value)}
+            onChange={handleSubCategoryChange}
             disabled={selectedCategoryId === ""}
           >
             <option value="">Tất cả danh mục phụ</option>

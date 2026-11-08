@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Badge, Card, Col, Container, Form, Row, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const API_URL = "http://localhost:9999";
 
@@ -12,9 +12,10 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Bộ lọc cho bảng sản phẩm sắp hết hàng
-  const [lowStockSearch, setLowStockSearch] = useState("");
-  const [lowStockCategory, setLowStockCategory] = useState("");
+  // Đọc search & category cho bảng sắp hết hàng từ URL params (?search=...&category=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const lowStockSearch = searchParams.get("search") || "";
+  const lowStockCategory = searchParams.get("category") || "";
 
   useEffect(() => {
     async function fetchData() {
@@ -145,13 +146,27 @@ export default function AdminDashboard() {
                 type="text"
                 placeholder="Tìm theo tên sản phẩm sắp hết hàng..."
                 value={lowStockSearch}
-                onChange={(e) => setLowStockSearch(e.target.value)}
+                onChange={(e) => {
+                  if (e.target.value) {
+                    searchParams.set("search", e.target.value);
+                  } else {
+                    searchParams.delete("search");
+                  }
+                  setSearchParams(searchParams);
+                }}
               />
             </Col>
             <Col md={5}>
               <Form.Select
                 value={lowStockCategory}
-                onChange={(e) => setLowStockCategory(e.target.value)}
+                onChange={(e) => {
+                  if (e.target.value) {
+                    searchParams.set("category", e.target.value);
+                  } else {
+                    searchParams.delete("category");
+                  }
+                  setSearchParams(searchParams);
+                }}
               >
                 <option value="">Tất cả danh mục</option>
                 {categories.map((c) => (

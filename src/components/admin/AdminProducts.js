@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Badge, Button, Col, Container, Form, Modal, Row, Table } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 const API_URL = "http://localhost:9999";
 const AVAILABLE_SIZES = ["S", "M", "L", "XL"];
@@ -11,11 +12,12 @@ export default function AdminProducts() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Bộ lọc
-  const [searchText, setSearchText] = useState("");
-  const [selectedCatId, setSelectedCatId] = useState("");
-  const [selectedSubCat, setSelectedSubCat] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState(""); // "" | "active" | "inactive"
+  // Đọc search & bộ lọc từ URL params (?search=...&category=...&subCategory=...&status=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") || "";
+  const selectedCatId = searchParams.get("category") || "";
+  const selectedSubCat = searchParams.get("subCategory") || "";
+  const selectedStatus = searchParams.get("status") || ""; // "" | "active" | "inactive"
 
   // Modal Thêm / Sửa sản phẩm
   const [showModal, setShowModal] = useState(false);
@@ -55,10 +57,16 @@ export default function AdminProducts() {
     fetchData();
   }, []);
 
-  // Xử lý đổi danh mục chính ở bộ lọc -> reset danh mục phụ
+  // Xử lý đổi danh mục chính ở bộ lọc -> cập nhật param và reset param danh mục phụ
   function handleFilterCatChange(e) {
-    setSelectedCatId(e.target.value);
-    setSelectedSubCat("");
+    const val = e.target.value;
+    if (val) {
+      searchParams.set("category", val);
+    } else {
+      searchParams.delete("category");
+    }
+    searchParams.delete("subCategory");
+    setSearchParams(searchParams);
   }
 
   // Danh mục phụ ở bộ lọc
@@ -245,7 +253,14 @@ export default function AdminProducts() {
             type="text"
             placeholder="Tìm theo tên sản phẩm..."
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("search", e.target.value);
+              } else {
+                searchParams.delete("search");
+              }
+              setSearchParams(searchParams);
+            }}
           />
         </Col>
         <Col md={3}>
@@ -261,7 +276,14 @@ export default function AdminProducts() {
         <Col md={3}>
           <Form.Select
             value={selectedSubCat}
-            onChange={(e) => setSelectedSubCat(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("subCategory", e.target.value);
+              } else {
+                searchParams.delete("subCategory");
+              }
+              setSearchParams(searchParams);
+            }}
             disabled={!selectedCatId}
           >
             <option value="">Tất cả danh mục phụ</option>
@@ -275,7 +297,14 @@ export default function AdminProducts() {
         <Col md={2}>
           <Form.Select
             value={selectedStatus}
-            onChange={(e) => setSelectedStatus(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("status", e.target.value);
+              } else {
+                searchParams.delete("status");
+              }
+              setSearchParams(searchParams);
+            }}
           >
             <option value="">Tất cả trạng thái</option>
             <option value="active">Đang bán</option>

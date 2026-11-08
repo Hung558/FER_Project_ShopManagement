@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Badge, Button, Card, Col, Container, Form, Row, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import PaymentModal from "./PaymentModal";
 
@@ -10,10 +10,13 @@ const API_URL = "http://localhost:9999";
 export default function CustomerOrders() {
   const { currentUser } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-  const [filterStatus, setFilterStatus] = useState("");
-  const [searchCode, setSearchCode] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  // Đọc search & filter từ URL params (?code=...&status=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchCode = searchParams.get("code") || "";
+  const filterStatus = searchParams.get("status") || "";
 
   // Modal thanh toán
   const [selectedOrderToPay, setSelectedOrderToPay] = useState(null);
@@ -136,13 +139,27 @@ export default function CustomerOrders() {
             type="text"
             placeholder="Tìm theo mã đơn hàng..."
             value={searchCode}
-            onChange={(e) => setSearchCode(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("code", e.target.value);
+              } else {
+                searchParams.delete("code");
+              }
+              setSearchParams(searchParams);
+            }}
           />
         </Col>
         <Col md={6}>
           <Form.Select
             value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("status", e.target.value);
+              } else {
+                searchParams.delete("status");
+              }
+              setSearchParams(searchParams);
+            }}
           >
             <option value="">Tất cả trạng thái</option>
             <option value="PendingPayment">Chờ thanh toán</option>

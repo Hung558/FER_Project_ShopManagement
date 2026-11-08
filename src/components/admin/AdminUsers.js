@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Badge, Button, Col, Container, Form, Modal, Row, Table } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 const API_URL = "http://localhost:9999";
 
@@ -9,10 +10,11 @@ export default function AdminUsers() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Tìm kiếm và lọc
-  const [searchText, setSearchText] = useState("");
-  const [filterRole, setFilterRole] = useState("");
-  const [filterStatus, setFilterStatus] = useState(""); // "" | "active" | "locked"
+  // Đọc search & bộ lọc từ URL params (?search=...&role=...&status=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") || "";
+  const filterRole = searchParams.get("role") || "";
+  const filterStatus = searchParams.get("status") || ""; // "" | "active" | "locked"
 
   // Modal Thêm tài khoản
   const [showAddModal, setShowAddModal] = useState(false);
@@ -225,13 +227,27 @@ export default function AdminUsers() {
             type="text"
             placeholder="Tìm theo email, tên hiển thị hoặc họ tên..."
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("search", e.target.value);
+              } else {
+                searchParams.delete("search");
+              }
+              setSearchParams(searchParams);
+            }}
           />
         </Col>
         <Col md={3}>
           <Form.Select
             value={filterRole}
-            onChange={(e) => setFilterRole(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("role", e.target.value);
+              } else {
+                searchParams.delete("role");
+              }
+              setSearchParams(searchParams);
+            }}
           >
             <option value="">Tất cả vai trò (Role)</option>
             <option value="Admin">Admin</option>
@@ -242,7 +258,14 @@ export default function AdminUsers() {
         <Col md={3}>
           <Form.Select
             value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("status", e.target.value);
+              } else {
+                searchParams.delete("status");
+              }
+              setSearchParams(searchParams);
+            }}
           >
             <option value="">Tất cả trạng thái</option>
             <option value="active">Đang hoạt động</option>

@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Alert, Badge, Button, Card, Col, Container, Form, Row, Table } from "react-bootstrap";
+import { useSearchParams } from "react-router-dom";
 
 const API_URL = "http://localhost:9999";
 
 export default function SellerOrders() {
   const [orders, setOrders] = useState([]);
-  const [filterStatus, setFilterStatus] = useState("");
-  const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  // Đọc search & filter từ URL params (?search=...&status=...)
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchText = searchParams.get("search") || "";
+  const filterStatus = searchParams.get("status") || "";
 
   async function fetchOrders() {
     try {
@@ -94,13 +98,27 @@ export default function SellerOrders() {
             type="text"
             placeholder="Tìm theo mã đơn hoặc tên khách..."
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("search", e.target.value);
+              } else {
+                searchParams.delete("search");
+              }
+              setSearchParams(searchParams);
+            }}
           />
         </Col>
         <Col md={6}>
           <Form.Select
             value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value) {
+                searchParams.set("status", e.target.value);
+              } else {
+                searchParams.delete("status");
+              }
+              setSearchParams(searchParams);
+            }}
           >
             <option value="">Tất cả trạng thái</option>
             <option value="PendingPayment">Chờ thanh toán</option>
