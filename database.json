@@ -83,6 +83,18 @@
       "avatar": "",
       "isActive": true,
       "id": "AyKhLfxxWEs"
+    },
+    {
+      "email": "ducanhngu@gmail.com",
+      "username": "Duc Anh",
+      "password": "123",
+      "fullName": "Duc Anh Ngao",
+      "role": "Customer",
+      "phone": "2222222222",
+      "address": "hoàng mai",
+      "avatar": "",
+      "isActive": true,
+      "id": "IRMOg7OlLvs"
     }
   ],
   "categories": [
